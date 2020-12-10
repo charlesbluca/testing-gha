@@ -1,0 +1,22 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Leaving comment on issue
+
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  comment:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@v3
+        with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
+          script: |
+            github.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: 'This is a comment spanning multiple lines!\nI wonder if we can include context variables here...\n${{ github.action }}'
+            })
