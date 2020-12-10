@@ -18,5 +18,5 @@ jobs:
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: 'This is a comment spanning multiple lines!\nI wonder if we can include context variables here...\n${{ github.action }}'
+              body: 'Thank you for your contributions!\n\nA preview of your changes can be viewed at:\n- https://raw.githack.com/pangeo-data/pangeo/gh-pages/index.html'
             })
